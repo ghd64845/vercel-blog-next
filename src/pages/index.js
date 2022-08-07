@@ -9,7 +9,7 @@ import Date from "components/Date"
 
 export default function Home({ allPostsData }) {
 	return (
-		<Layout home>
+		<>
 			<Head>
 				<title>{siteTitle}</title>
 			</Head>
@@ -34,8 +34,12 @@ export default function Home({ allPostsData }) {
 					))}
 				</ul>
 			</section>
-		</Layout>
+		</>
 	)
+}
+
+Home.getLayout = function getLayout(page) {
+	return <Layout home>{page}</Layout>
 }
 
 export async function getStaticProps() {

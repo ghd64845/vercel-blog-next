@@ -11,7 +11,7 @@ export default function Post({ postData }) {
 
 	if (router.isFallback) return <div>Loading...</div>
 	return (
-		<Layout>
+		<>
 			<article>
 				<h1 className={utilStyles.headingXl}>{postData.title} </h1>
 				<div className={utilStyles.lightText}>
@@ -20,8 +20,12 @@ export default function Post({ postData }) {
 			</article>
 			<br />
 			<div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
-		</Layout>
+		</>
 	)
+}
+
+Post.getLayout = function getLayout(page) {
+	return <Layout>{page}</Layout>
 }
 
 export async function getStaticProps({ params }) {

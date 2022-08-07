@@ -43,7 +43,7 @@ export default function Write() {
 		}
 	}
 	return (
-		<Layout>
+		<>
 			<h1>Write a post</h1>
 			<form onSubmit={handleSubmit}>
 				<input type="text" name="id" placeholder="id" required ref={idRef} />
@@ -71,6 +71,10 @@ export default function Write() {
 					<a>Created Post</a>
 				</Link>
 			)}
-		</Layout>
+		</>
 	)
+}
+
+Write.getLayout = function getLayout(page) {
+	return <Layout>{page}</Layout>
 }
